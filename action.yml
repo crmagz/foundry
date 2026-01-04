@@ -1,0 +1,54 @@
+name: 'Foundry'
+description: 'Deterministic repository creation for platform teams'
+author: 'Your Name'
+branding:
+  icon: 'package'
+  color: 'blue'
+
+inputs:
+  github-token:
+    description: 'GitHub token for authentication'
+    required: true
+  repository-name:
+    description: 'Name of the repository to create'
+    required: true
+  repository-description:
+    description: 'Description of the repository'
+    required: false
+    default: ''
+  repository-private:
+    description: 'Whether the repository should be private'
+    required: false
+    default: 'false'
+  repository-template:
+    description: 'Template repository to use (format: owner/repo)'
+    required: false
+    default: ''
+  organization:
+    description: 'Organization to create the repository in (defaults to authenticated user)'
+    required: false
+    default: ''
+  auto-init:
+    description: 'Initialize repository with README'
+    required: false
+    default: 'true'
+  gitignore-template:
+    description: 'Gitignore template to use'
+    required: false
+    default: ''
+  license-template:
+    description: 'License template to use'
+    required: false
+    default: ''
+
+outputs:
+  repository-url:
+    description: 'URL of the created repository'
+  repository-name:
+    description: 'Full name of the created repository (owner/repo)'
+  repository-id:
+    description: 'ID of the created repository'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
